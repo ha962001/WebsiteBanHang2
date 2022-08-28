@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WebsiteBanHangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="dbBrand">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Avatar" Type="nvarchar" MaxLength="100" />
+          <Property Name="Slug" Type="varchar" MaxLength="100" />
+          <Property Name="ShowOnHomePage" Type="bit" />
+          <Property Name="DisplayOder" Type="int" />
+          <Property Name="CreatedOnUtc" Type="datetime" />
+          <Property Name="UpdateOnUtc" Type="datetime" />
+          <Property Name="Deleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="dbCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Avatar" Type="nvarchar" MaxLength="100" />
+          <Property Name="Slug" Type="varchar" MaxLength="100" />
+          <Property Name="ShowOnHomePage" Type="bit" />
+          <Property Name="DisplayOder" Type="int" />
+          <Property Name="CreatedOnUtc" Type="datetime" />
+          <Property Name="UpdateOnUtc" Type="datetime" />
+          <Property Name="Deleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="dbOder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="CreatedOnUtc" Type="datetime" />
+        </EntityType>
+        <EntityType Name="dbOderDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OderID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="dbProduct">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Avatar" Type="nchar" MaxLength="100" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="ShortDes" Type="nvarchar" MaxLength="100" />
+          <Property Name="FullDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="Price" Type="float" />
+          <Property Name="PriceDiscount" Type="float" />
+          <Property Name="TypeId" Type="int" />
+          <Property Name="Slug" Type="varchar" MaxLength="50" />
+          <Property Name="BrandId" Type="int" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="ShowOnHomePage" Type="bit" />
+          <Property Name="DisplayOrder" Type="int" />
+          <Property Name="CreateOnUtc" Type="datetime" />
+          <Property Name="UpdateOnUtc" Type="datetime" />
+        </EntityType>
+        <EntityType Name="dbUsẻ">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsAdmin" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="WebsiteBanHangModelStoreContainer">
+          <EntitySet Name="dbBrand" EntityType="Self.dbBrand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbCategory" EntityType="Self.dbCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbOder" EntityType="Self.dbOder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbOderDetail" EntityType="Self.dbOderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbProduct" EntityType="Self.dbProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dbUsẻ" EntityType="Self.dbUsẻ" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebsiteBanHangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="dbBrand">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Avatar" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Slug" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ShowOnHomePage" Type="Boolean" />
+          <Property Name="DisplayOder" Type="Int32" />
+          <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
+          <Property Name="UpdateOnUtc" Type="DateTime" Precision="3" />
+          <Property Name="Deleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="dbCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Avatar" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Slug" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ShowOnHomePage" Type="Boolean" />
+          <Property Name="DisplayOder" Type="Int32" />
+          <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
+          <Property Name="UpdateOnUtc" Type="DateTime" Precision="3" />
+          <Property Name="Deleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="dbOder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="CreatedOnUtc" Type="DateTime" Precision="3" />
+          <Property Name="UserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="dbProduct">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Avatar" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="ShortDes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FullDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="PriceDiscount" Type="Double" />
+          <Property Name="TypeId" Type="Int32" />
+          <Property Name="Slug" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BrandId" Type="Int32" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="ShowOnHomePage" Type="Boolean" />
+          <Property Name="DisplayOrder" Type="Int32" />
+          <Property Name="CreateOnUtc" Type="DateTime" Precision="3" />
+          <Property Name="UpdateOnUtc" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="dbUsẻ">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsAdmin" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="WebsiteBanHangEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="dbBrands" EntityType="Self.dbBrand" />
+          <EntitySet Name="dbCategories" EntityType="Self.dbCategory" />
+          <EntitySet Name="dbOders" EntityType="Self.dbOder" />
+          <EntitySet Name="dbProducts" EntityType="Self.dbProduct" />
+          <EntitySet Name="dbUsẻ" EntityType="Self.dbUsẻ" />
+          <EntitySet Name="dbOderDetails" EntityType="WebsiteBanHangModel.dbOderDetail" />
+        </EntityContainer>
+        <EntityType Name="dbOderDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OderID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebsiteBanHangModelStoreContainer" CdmEntityContainer="WebsiteBanHangEntities">
+          <EntitySetMapping Name="dbBrands">
+            <EntityTypeMapping TypeName="WebsiteBanHangModel.dbBrand">
+              <MappingFragment StoreEntitySet="dbBrand">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
+                <ScalarProperty Name="DisplayOder" ColumnName="DisplayOder" />
+                <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
+                <ScalarProperty Name="UpdateOnUtc" ColumnName="UpdateOnUtc" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbCategories">
+            <EntityTypeMapping TypeName="WebsiteBanHangModel.dbCategory">
+              <MappingFragment StoreEntitySet="dbCategory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
+                <ScalarProperty Name="DisplayOder" ColumnName="DisplayOder" />
+                <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
+                <ScalarProperty Name="UpdateOnUtc" ColumnName="UpdateOnUtc" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbOders">
+            <EntityTypeMapping TypeName="WebsiteBanHangModel.dbOder">
+              <MappingFragment StoreEntitySet="dbOder">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbProducts">
+            <EntityTypeMapping TypeName="WebsiteBanHangModel.dbProduct">
+              <MappingFragment StoreEntitySet="dbProduct">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ShortDes" ColumnName="ShortDes" />
+                <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PriceDiscount" ColumnName="PriceDiscount" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="CreateOnUtc" ColumnName="CreateOnUtc" />
+                <ScalarProperty Name="UpdateOnUtc" ColumnName="UpdateOnUtc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbUsẻ">
+            <EntityTypeMapping TypeName="WebsiteBanHangModel.dbUsẻ">
+              <MappingFragment StoreEntitySet="dbUsẻ">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dbOderDetails">
+            <EntityTypeMapping TypeName="WebsiteBanHangModel.dbOderDetail">
+              <MappingFragment StoreEntitySet="dbOderDetail">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="OderID" ColumnName="OderID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
