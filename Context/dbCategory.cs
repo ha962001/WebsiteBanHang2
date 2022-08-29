@@ -23,5 +23,8 @@ namespace WebsiteBanHang.Context
         public Nullable<System.DateTime> CreatedOnUtc { get; set; }
         public Nullable<System.DateTime> UpdateOnUtc { get; set; }
         public Nullable<bool> Deleted { get; set; }
+
+        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
+
     }
 }
